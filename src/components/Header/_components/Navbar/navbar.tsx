@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="flex flex-col items-center gap-6">
           <Image
             priority
-            src="/images/hero-images/logo-family-love.png"
+            src="/logo/logo-family-love.png"
             className="w-24"
             width={300}
             height={150}

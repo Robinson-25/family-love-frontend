@@ -11,7 +11,7 @@ const Header = async () => {
       <Link href="/" className="w-12 md:w-14">
         <Image
           priority
-          src="/images/hero-images/logo-family-love.png"
+          src="/logo/logo-family-love.png"
           className="w-full"
           width={150}
           height={150}

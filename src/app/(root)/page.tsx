@@ -44,7 +44,7 @@ const Page = () => {
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-3xl overflow-hidden h-48 md:h-64">
               <Image
-                src="/images/hero-images/family love ullusca footo-67.webp"
+                src="/images/general/grupo-ullusca.webp"
                 alt="Family Love"
                 width={400}
                 height={400}
@@ -53,7 +53,7 @@ const Page = () => {
             </div>
             <div className="rounded-3xl overflow-hidden h-48 md:h-64 mt-6">
               <Image
-                src="/images/hero-images/2 foto family-9.webp"
+                src="/images/general/familia-voluntarios.webp"
                 alt="Family Love"
                 width={400}
                 height={400}
@@ -62,7 +62,7 @@ const Page = () => {
             </div>
             <div className="rounded-3xl overflow-hidden h-48 md:h-64">
               <Image
-                src="/images/hero-images/inicio01.jpg"
+                src="/images/inicio/inicio-01.jpg"
                 alt="Family Love"
                 width={400}
                 height={400}
@@ -71,7 +71,7 @@ const Page = () => {
             </div>
             <div className="rounded-3xl overflow-hidden h-48 md:h-64 mt-6">
               <Image
-                src="/images/hero-images/inicio02.jpg"
+                src="/images/inicio/inicio-02.jpg"
                 alt="Family Love"
                 width={400}
                 height={400}

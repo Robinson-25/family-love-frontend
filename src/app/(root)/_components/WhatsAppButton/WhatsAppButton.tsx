@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <Image
-                src="/images/hero-images/logo-family-love.png"
+                src="/logo/logo-family-love.png"
                 alt="Family Love"
                 width={40}
                 height={40}

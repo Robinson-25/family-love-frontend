@@ -94,11 +94,11 @@ export default function ProgramasPage() {
             <div className="md:w-1/2 grid grid-cols-2 gap-4">
               <div className="h-64 rounded-[2rem] bg-[#1a3a6b] overflow-hidden relative shadow-2xl translate-y-8">
                 <div className="absolute inset-0 bg-blue-500/20" />
-                <Image src="/images/hero-images/programa02.jpg" alt="Impacto" fill className="object-cover" />
+                <Image src="/images/programas/programa-02.jpg" alt="Impacto" fill className="object-cover" />
               </div>
               <div className="h-64 rounded-[2rem] bg-[#73eafe] overflow-hidden relative shadow-2xl">
                 <div className="absolute inset-0 bg-black/10" />
-                <Image src="/images/hero-images/Programa01.jpg" alt="Formación" fill className="object-cover" />
+                <Image src="/images/programas/programa-01.jpg" alt="Formación" fill className="object-cover" />
               </div>
             </div>
           </div>

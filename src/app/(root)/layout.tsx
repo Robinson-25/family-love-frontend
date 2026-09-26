@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Family Love",
   description: "En Family Love, somos una organizacion dedicada a fortalecer el nucleo familiar y brindar apoyo integral a quienes mas lo necesitan",
   icons: {
-    icon: "/images/hero-images/logo-family-love.png",
+    icon: "/logo/logo-family-love.png",
   },
 };
 

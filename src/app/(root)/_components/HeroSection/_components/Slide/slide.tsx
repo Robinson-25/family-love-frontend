@@ -11,9 +11,9 @@ interface Props {
 }
 
 const heroImages = [
-  "/images/hero-images/2 foto family-9.webp",
-  "/images/hero-images/family love ullusca footo-67.webp",
-  "/images/hero-images/2 foto family-9.webp",
+  "/images/general/familia-voluntarios.webp",
+  "/images/general/grupo-ullusca.webp",
+  "/images/general/familia-voluntarios.webp",
 ];
 
 const Slide = ({ mounted }: Props) => {

@@ -417,7 +417,7 @@ const LoginForm = () => {
             <div className="login-logo-wrap">
               <Image
                 priority
-                src="/images/hero-images/logo-family-love.png"
+                src="/logo/logo-family-love.png"
                 alt="logo family love"
                 width={300}
                 height={150}

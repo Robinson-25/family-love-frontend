@@ -7,7 +7,7 @@ const Loading = () => {
     <div>
       <div className="fixed z-[80] bg-white dark:bg-zinc-950 top-0 right-0 left-0 bottom-0 flex flex-col items-center justify-center gap-3 w-full h-full">
         <Image
-          src={`/images/hero-images/logo-family-love.png`}
+          src={`/logo/logo-family-love.png`}
           alt="family love"
           width={300}
           height={150}

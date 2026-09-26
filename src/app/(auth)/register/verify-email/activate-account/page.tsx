@@ -93,7 +93,7 @@ const Page = () => {
           <div className="fixed bg-white dark:bg-zinc-950 flex flex-col items-center justify-center gap-3 w-full h-full">
             <Image
               priority
-              src={`/images/hero-images/logo-family-love.png`}
+              src={`/logo/logo-family-love.png`}
               alt="Logo Family Love"
               width={300}
               height={150}
