@@ -3,7 +3,6 @@ import "./globals.css";
 import { raleway } from "@/fonts/fonts";
 import { cn } from "@/lib/utils";
 import ThemeProvider from "@/components/Providers/ThemeProvider/theme-provider";
-import AuthProvider from "@/components/Providers/AuthProvider/auth-provider";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ export default function RootLayout({
           raleway.className
         )}
       >
-        <AuthProvider>
+        <>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -38,7 +37,7 @@ export default function RootLayout({
             {children}
             <Toaster />
           </ThemeProvider>
-        </AuthProvider>
+        </>
       </body>
     </html>
   );

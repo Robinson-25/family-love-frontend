@@ -1,6 +1,6 @@
 "use client";
 
-import { api } from "@/lib/api";
+import { api, ADMIN_URL } from "@/lib/api";
 import React, { useEffect, useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -63,7 +63,7 @@ const Page = ({ params }: { params: { token: string } }) => {
           toast.success(response.data.message);
           setTimeout(() => {
             setFormLoading(false);
-            router.push("/login");
+            window.location.href = `${ADMIN_URL}/login`;
           }, 2100);
         } else {
           toast.error(response.data.error || "El enlace venció, pide uno nuevo");

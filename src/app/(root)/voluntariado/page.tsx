@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import { API_URL } from "@/lib/api";
-import { useRouter } from "next/navigation";
 
 const razones = [
   {
@@ -72,8 +70,6 @@ const testimonios = [
 ];
 
 function Formulario() {
-  const { data: session } = useSession();
-  const router = useRouter();
   const [enviado, setEnviado] = useState(false);
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState("");
@@ -92,11 +88,6 @@ function Formulario() {
   };
 
   const handleSubmit = async () => {
-    if (!session) {
-      router.push("/login");
-      return;
-    }
-
     if (!form.nombre || !form.edad || !form.email || !form.telefono) {
       setError("Por favor completa todos los campos obligatorios.");
       return;
@@ -107,17 +98,12 @@ function Formulario() {
     try {
       const res = await fetch(`${API_URL}/voluntarios`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessToken ?? ""}`,
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       if (res.ok) {
         setEnviado(true);
-      } else if (res.status === 401) {
-        router.push("/login");
       } else {
         const data = await res.json().catch(() => ({}));
         setError(data.error || "Hubo un error al enviar. Intenta nuevamente.");
