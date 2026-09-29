@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { apiGet } from "@/lib/api";
+import AutoRefresh from "@/components/AutoRefresh";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export default async function NoticiasPage() {
 
   return (
     <main className="bg-white text-gray-800 font-sans">
+      <AutoRefresh temas={["noticias"]} />
       {/* HERO */}
       <section className="relative bg-gradient-to-br from-[#1a3a6b] via-[#2251a3] to-[#73eafe] overflow-hidden">
         <div className="absolute -top-20 -right-20 w-96 h-96 bg-white/5 rounded-full" />

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { apiGet } from "@/lib/api";
 import { ArrowLeft } from "lucide-react";
+import AutoRefresh from "@/components/AutoRefresh";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export default async function NoticiaDetallePage({
 
   return (
     <main className="bg-white text-gray-800 font-sans">
+      <AutoRefresh temas={["noticias"]} />
       <section className="max-w-3xl mx-auto px-6 py-16">
         <Link
           href="/noticias"

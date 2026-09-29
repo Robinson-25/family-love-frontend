@@ -1,8 +1,9 @@
 "use client";
 
 import { API_URL } from "@/lib/api";
+import { useCambios } from "@/lib/use-cambios";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 
 type Proyecto = {
@@ -196,32 +197,43 @@ export default function ProyectoPage() {
   const [proyectosPorAno, setProyectosPorAno] = useState<Record<string, Proyecto[]>>({});
   const [cargando, setCargando] = useState(true);
 
-  useEffect(() => {
-    const cargarProyectos = async () => {
-      try {
-        const res = await fetch(`${API_URL}/proyectos`);
-        const data = await res.json();
-        const proyectos: Proyecto[] = data.proyectos || [];
+  const cargarProyectos = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_URL}/proyectos`, { cache: "no-store" });
+      const data = await res.json();
+      const proyectos: Proyecto[] = data.proyectos || [];
 
-        const agrupados: Record<string, Proyecto[]> = {};
-        proyectos.forEach((p) => {
-          const anio = String(p.anio);
-          if (!agrupados[anio]) agrupados[anio] = [];
-          agrupados[anio].push(p);
-        });
+      const agrupados: Record<string, Proyecto[]> = {};
+      proyectos.forEach((p) => {
+        const anio = String(p.anio);
+        if (!agrupados[anio]) agrupados[anio] = [];
+        agrupados[anio].push(p);
+      });
 
-        setProyectosPorAno(agrupados);
+      setProyectosPorAno(agrupados);
 
-        const anosDisponibles = Object.keys(agrupados).sort((a, b) => Number(b) - Number(a));
-        if (anosDisponibles.length > 0) setAnoActivo(anosDisponibles[0]);
-      } catch (error) {
-        console.error("Error cargando proyectos:", error);
-      } finally {
-        setCargando(false);
-      }
-    };
-    cargarProyectos();
+      const anosDisponibles = Object.keys(agrupados).sort((a, b) => Number(b) - Number(a));
+      // Mantiene el año que la persona estaba viendo (si todavía existe).
+      setAnoActivo((actual) =>
+        actual && agrupados[actual] ? actual : anosDisponibles[0] ?? ""
+      );
+      // Si hay un proyecto abierto, lo actualiza con los datos nuevos.
+      setProyectoActivo((abierto) =>
+        abierto ? proyectos.find((p) => p.id === abierto.id) ?? null : null
+      );
+    } catch (error) {
+      console.error("Error cargando proyectos:", error);
+    } finally {
+      setCargando(false);
+    }
   }, []);
+
+  useEffect(() => {
+    cargarProyectos();
+  }, [cargarProyectos]);
+
+  // Cuando el panel guarda o borra un proyecto, el backend avisa y se recarga solo.
+  useCambios(["proyectos"], cargarProyectos);
 
   const anos = Object.keys(proyectosPorAno).sort((a, b) => Number(b) - Number(a));
   const proyectosDelAno = proyectosPorAno[anoActivo] || [];
