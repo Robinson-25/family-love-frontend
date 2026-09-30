@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -48,7 +48,6 @@ export default function Navbar() {
             height={150}
             alt="Logo Family Love"
           />
-        
           {enlaces.map((e) => (
             <Link
               key={e.href}
@@ -75,7 +74,7 @@ export default function Navbar() {
           <Link
             key={e.href}
             href={e.href}
-            className={`group relative text-[15px] font-semibold px-4 py-2 rounded-full transition-colors duration-200 ${
+            className={`group relative whitespace-nowrap text-[15px] font-semibold px-3.5 xl:px-4 py-2 rounded-full transition-colors duration-200 ${
               activo(e.href)
                 ? "text-[#1a3a6b] dark:text-[#73eafe]"
                 : "text-zinc-600 dark:text-zinc-300 hover:text-[#0271bd] dark:hover:text-[#73eafe]"
@@ -90,6 +89,15 @@ export default function Navbar() {
             />
           </Link>
         ))}
+
+        {/* Botón Donar, junto a Voluntariado */}
+        <Link
+          href="/donar"
+          className="group ml-3 whitespace-nowrap inline-flex items-center gap-1.5 rounded-full bg-[#0271bd] hover:bg-[#1a3a6b] text-white text-[15px] font-bold px-5 py-2 shadow-[0_8px_20px_-8px_rgba(2,113,189,0.8)] transition-colors"
+        >
+          <Heart className="w-4 h-4 fill-white/90 transition-transform group-hover:scale-110" />
+          Donar
+        </Link>
       </nav>
     </>
   );

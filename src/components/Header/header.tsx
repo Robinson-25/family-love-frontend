@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ToggleTheme from "../ToggleTheme/toggle-theme";
 import Navbar from "./navbar";
+import { Heart } from "lucide-react";
 
 const Header = () => {
   // Al bajar, la cabecera se vuelve "de vidrio" con una sombra suave.
@@ -40,6 +41,14 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center gap-3">
+        {/* Botón Donar (solo en celular; en PC está junto a Voluntariado, en navbar.tsx) */}
+        <Link
+          href="/donar"
+          className="lg:hidden group inline-flex items-center gap-1.5 rounded-full bg-[#0271bd] hover:bg-[#1a3a6b] text-white text-sm font-bold px-4 sm:px-5 py-2 shadow-[0_8px_20px_-8px_rgba(2,113,189,0.8)] transition-colors"
+        >
+          <Heart className="w-4 h-4 fill-white/90 transition-transform group-hover:scale-110" />
+          Donar
+        </Link>
         <ToggleTheme />
       </div>
     </header>
