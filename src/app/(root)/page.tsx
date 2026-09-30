@@ -12,14 +12,14 @@ const Page = () => {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">
+            <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">
               Sobre Family Love
             </span>
-            <h2 className="text-4xl font-extrabold text-gray-900 mt-2 leading-tight">
+            <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] dark:text-white mt-3 leading-tight">
               Amor, Familia y <br />
-              <span className="text-[#0271bd]">Esperanza</span>
+              <span className="text-[#0271bd] dark:text-[#73eafe]">Esperanza</span>
             </h2>
-            <p className="text-gray-500 mt-4 leading-relaxed">
+            <p className="text-gray-500 dark:text-zinc-400 mt-4 leading-relaxed">
               En Family Love, somos una organización dedicada a fortalecer el
               núcleo familiar y brindar apoyo integral a quienes más lo
               necesitan. Creemos que cada familia merece amor, acompañamiento y

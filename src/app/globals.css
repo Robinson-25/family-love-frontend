@@ -38,3 +38,73 @@ html.dark *::-webkit-scrollbar-thumb,
 html.dark *::-webkit-scrollbar-thumb {
   background-color: rgb(60, 60, 60);
 }
+
+/* ══════════════════════════════════════════════════════════
+   Family Love · estilos base (tipografía y detalles finos)
+   ══════════════════════════════════════════════════════════ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply font-sans text-zinc-800 dark:text-zinc-100;
+    font-feature-settings: "cv11", "ss01";
+  }
+  /* Todos los títulos usan la letra de títulos */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+  h1 { line-height: 1.08; }
+  h2, h3 { line-height: 1.2; }
+  p { text-wrap: pretty; }
+  h1, h2 { text-wrap: balance; }
+
+  ::selection {
+    background: #73eafe;
+    color: #1a3a6b;
+  }
+  /* Contorno visible solo al navegar con teclado */
+  :focus-visible {
+    outline: 2px solid #0271bd;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* ── Aparición suave al bajar (la activa ScrollReveal) ── */
+html.fl-reveal-on .fl-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+html.fl-reveal-on .fl-reveal.fl-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Portada: zoom lento de las fotos ── */
+@keyframes fl-kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.fl-kenburns { animation: fl-kenburns 9s ease-out forwards; }
+
+@keyframes fl-bounce-soft {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+.fl-bounce-soft { animation: fl-bounce-soft 2s ease-in-out infinite; }
+
+/* Si la persona pidió "reducir movimiento" en su dispositivo, se respeta */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.fl-reveal-on .fl-reveal { opacity: 1; transform: none; transition: none; }
+  .fl-kenburns, .fl-bounce-soft { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

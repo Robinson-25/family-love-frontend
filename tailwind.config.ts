@@ -14,9 +14,7 @@ const config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       colors: {
@@ -25,6 +23,9 @@ const config = {
         "fl-blue": "#0271bd",
         "fl-celeste": "#73eafe",
         "fl-purplu": "#6923b7",
+        // Paleta oficial Family Love
+        "fl-navy": "#1a3a6b",
+        "fl-azul": "#2251a3",
       },
       transitionDuration: {
         "1200": "1200ms",
@@ -38,7 +39,11 @@ const config = {
         "in-slider": "cubic-bezier(0.9, 0, 0.2, 1)",
         "in-slow": "cubic-bezier(0.4, 0, 1, 1)",
       },
-      fontFamily: {},
+      fontFamily: {
+        // Texto: Inter · Títulos: Plus Jakarta Sans
+        sans: ["Inter Variable", "Inter", ...fontFamily.sans],
+        display: ["Plus Jakarta Sans Variable", "Plus Jakarta Sans", ...fontFamily.sans],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

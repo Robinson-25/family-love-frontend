@@ -32,7 +32,7 @@ export default async function NoticiaDetallePage({
         </Link>
 
         <span className="text-xs text-gray-400 font-semibold">📅 {noticia.fecha}</span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-6 leading-tight">
+        <h1 className="text-3xl md:text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3 mb-6 leading-tight">
           {noticia.titulo}
         </h1>
 

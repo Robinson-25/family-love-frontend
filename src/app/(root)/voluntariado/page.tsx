@@ -262,21 +262,21 @@ export default function VoluntariadoPage() {
       {/* Razones */}
       <section className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
-          <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">Razones para unirte</span>
-          <h2 className="text-4xl font-extrabold text-gray-900 mt-2">¿Por qué ser voluntario?</h2>
+          <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">Razones para unirte</span>
+          <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3">¿Por qué ser voluntario?</h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {razones.map((r, i) => (
             <div
               key={i}
-              className="bg-white rounded-3xl p-6 shadow-md border-2 border-[#1a3a6b] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-white rounded-3xl p-7 border border-zinc-200/80 shadow-[0_2px_12px_-4px_rgba(26,58,107,0.12)] hover:shadow-[0_20px_40px_-18px_rgba(26,58,107,0.35)] hover:-translate-y-1.5 hover:border-[#73eafe]/70 transition-all duration-300"
             >
               <div className={`w-14 h-14 bg-gradient-to-br ${r.color} rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-lg`}>
                 {r.icono}
               </div>
-              <h3 className="inline-block bg-[#1a3a6b] text-white font-bold text-sm px-3 py-1 rounded-lg mb-2">{r.titulo}</h3>
-              <p className="text-gray-900 font-semibold text-sm leading-relaxed">{r.descripcion}</p>
+              <h3 className="font-display text-lg font-bold text-[#1a3a6b] mb-2 leading-snug">{r.titulo}</h3>
+              <p className="text-zinc-600 text-[15px] leading-relaxed">{r.descripcion}</p>
             </div>
           ))}
         </div>
@@ -286,21 +286,21 @@ export default function VoluntariadoPage() {
       <section className="bg-gray-50 py-20">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">Lo que necesitas</span>
-            <h2 className="text-4xl font-extrabold text-gray-900 mt-2">Requisitos para unirte</h2>
+            <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">Lo que necesitas</span>
+            <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3">Requisitos para unirte</h2>
           </div>
 
           <div className="space-y-4">
             {requisitos.map((r, i) => (
               <div
                 key={i}
-                className="flex items-center gap-5 bg-[#1a3a6b] rounded-2xl p-5 shadow-md border-2 border-[#2251a3] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="flex items-center gap-5 bg-white rounded-2xl p-5 border border-zinc-200/80 shadow-[0_2px_12px_-4px_rgba(26,58,107,0.12)] hover:shadow-[0_16px_32px_-16px_rgba(26,58,107,0.35)] hover:-translate-y-0.5 hover:border-[#73eafe]/70 transition-all duration-300"
               >
-                <span className="text-4xl font-extrabold text-[#73eafe] font-mono leading-none flex-shrink-0">
+                <span className="font-display text-3xl font-extrabold bg-gradient-to-br from-[#2251a3] to-[#73eafe] bg-clip-text text-transparent leading-none flex-shrink-0 w-12">
                   {r.numero}
                 </span>
-                <p className="text-white font-semibold text-base leading-relaxed">{r.texto}</p>
-                <span className="ml-auto text-[#73eafe] text-2xl font-bold flex-shrink-0">✓</span>
+                <p className="text-zinc-800 font-medium text-base leading-relaxed">{r.texto}</p>
+                <span className="ml-auto w-8 h-8 rounded-full bg-[#73eafe]/20 text-[#0271bd] text-base font-bold flex items-center justify-center flex-shrink-0">✓</span>
               </div>
             ))}
           </div>
@@ -310,19 +310,19 @@ export default function VoluntariadoPage() {
       {/* Testimonios */}
       <section className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
-          <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">Voces del equipo</span>
-          <h2 className="text-4xl font-extrabold text-gray-900 mt-2">Lo que dicen nuestros voluntarios</h2>
+          <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">Voces del equipo</span>
+          <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3">Lo que dicen nuestros voluntarios</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonios.map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-3xl p-6 shadow-md border-2 border-[#1a3a6b] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-white rounded-3xl p-7 border border-zinc-200/80 shadow-[0_2px_12px_-4px_rgba(26,58,107,0.12)] hover:shadow-[0_20px_40px_-18px_rgba(26,58,107,0.35)] hover:-translate-y-1.5 hover:border-[#73eafe]/70 transition-all duration-300"
             >
               <div>
                 <div className="text-5xl text-[#2251a3] opacity-20 font-serif leading-none mb-3">&ldquo;</div>
-                <p className="text-gray-900 text-sm leading-relaxed italic mb-6">
+                <p className="text-zinc-700 text-[15px] leading-relaxed italic mb-6">
                   {t.texto}
                 </p>
               </div>

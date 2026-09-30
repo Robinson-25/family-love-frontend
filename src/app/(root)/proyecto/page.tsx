@@ -263,10 +263,10 @@ export default function ProyectoPage() {
       {/* SECCIÓN PROYECTOS CON TABS POR AÑO */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-10">
-          <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">
+          <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">
             Lo que hemos hecho
           </span>
-          <h2 className="text-4xl font-extrabold text-gray-900 mt-2">Proyectos Realizados</h2>
+          <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3">Proyectos Realizados</h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             Cada proyecto es una historia de amor, esfuerzo y comunidad.
           </p>
@@ -364,10 +364,10 @@ export default function ProyectoPage() {
       <section className="bg-gray-50 py-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="text-[#2251a3] font-semibold text-sm tracking-widest uppercase">
+            <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">
               Quienes nos respaldan
             </span>
-            <h2 className="text-4xl font-extrabold text-gray-900 mt-2">
+            <h2 className="text-3xl md:text-[2.6rem] font-extrabold text-[#1a3a6b] mt-3">
               Alianzas y Crecimiento Institucional
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto leading-relaxed">

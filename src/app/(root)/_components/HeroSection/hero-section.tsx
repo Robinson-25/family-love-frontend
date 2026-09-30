@@ -11,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full h-[600px] relative">
+    <section className="w-full h-[78vh] min-h-[520px] max-h-[760px] relative">
       <Slide
         mounted={mounted}
         title="Family Love"

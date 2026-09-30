@@ -3,8 +3,10 @@ import * as React from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const enlaces = [
+  { href: "/", label: "Inicio" },
   { href: "/noticias", label: "Noticias" },
   { href: "/quienes-somos", label: "Quiénes Somos" },
   { href: "/proyecto", label: "Proyectos" },
@@ -15,6 +17,8 @@ const enlaces = [
 export default function Navbar() {
   const [showMenuPopup, setShowMenuPopup] = React.useState(false);
   const cerrar = () => setShowMenuPopup(false);
+  const pathname = usePathname();
+  const activo = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
     <>
@@ -44,18 +48,12 @@ export default function Navbar() {
             height={150}
             alt="Logo Family Love"
           />
-          <Link
-            href="/"
-            className="font-bold text-gray-900 dark:text-white text-xl"
-            onClick={cerrar}
-          >
-            Inicio
-          </Link>
+        
           {enlaces.map((e) => (
             <Link
               key={e.href}
               href={e.href}
-              className="font-bold text-gray-900 dark:text-white text-xl"
+              className="font-display font-bold text-gray-900 dark:text-white text-xl"
               onClick={cerrar}
             >
               {e.label}
@@ -72,17 +70,27 @@ export default function Navbar() {
       </div>
 
       {/* MENU DESKTOP */}
-      <div className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+      <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
         {enlaces.map((e) => (
           <Link
             key={e.href}
             href={e.href}
-            className="text-base font-bold text-gray-900 dark:text-white px-4 py-2 rounded-md hover:bg-[#73eafe]/20 hover:text-[#0271bd] transition-all duration-200"
+            className={`group relative text-[15px] font-semibold px-4 py-2 rounded-full transition-colors duration-200 ${
+              activo(e.href)
+                ? "text-[#1a3a6b] dark:text-[#73eafe]"
+                : "text-zinc-600 dark:text-zinc-300 hover:text-[#0271bd] dark:hover:text-[#73eafe]"
+            }`}
           >
             {e.label}
+            {/* Línea inferior: fija en la página actual, aparece al pasar el mouse en las demás */}
+            <span
+              className={`absolute left-4 right-4 -bottom-0.5 h-[2px] rounded-full bg-gradient-to-r from-[#0271bd] to-[#73eafe] origin-left transition-transform duration-300 ${
+                activo(e.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+              }`}
+            />
           </Link>
         ))}
-      </div>
+      </nav>
     </>
   );
 }

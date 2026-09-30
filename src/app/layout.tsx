@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/plus-jakarta-sans";
 import "./globals.css";
-import { raleway } from "@/fonts/fonts";
 import { cn } from "@/lib/utils";
 import ThemeProvider from "@/components/Providers/ThemeProvider/theme-provider";
+import ScrollReveal from "@/components/Motion/ScrollReveal";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "Family love",
+  title: "Family Love",
   description:
     "En Family Love, somos una organización dedicada a fortalecer el núcleo familiar y brindar apoyo integral a quienes más lo necesitan",
   icons: {
@@ -21,23 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body
-        className={cn(
-          `min-h-screen bg-zinc-100 dark:bg-zinc-950 antialiased`,
-          raleway.className
-        )}
-      >
-        <>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-            <Toaster />
-          </ThemeProvider>
-        </>
+      <body className={cn("min-h-screen bg-zinc-100 dark:bg-zinc-950 antialiased font-sans")}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <ScrollReveal />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
