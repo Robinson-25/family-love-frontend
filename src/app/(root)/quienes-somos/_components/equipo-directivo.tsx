@@ -189,7 +189,7 @@ function FlipCard({ persona }: { persona: (typeof equipo)[0] }) {
 // ─── SECCIÓN COMPLETA ─────────────────────────────────────────────────────────
 export default function EquipoDirectivo() {
   return (
-    <section className="bg-gradient-to-br from-[#1a3a6b] to-[#2251a3] py-20">
+    <section id="equipo" className="bg-gradient-to-br from-[#1a3a6b] to-[#2251a3] py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <span className="text-[#73eafe] font-semibold text-sm tracking-widest uppercase">
           Las personas detrás

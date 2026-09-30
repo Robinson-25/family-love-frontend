@@ -1,5 +1,6 @@
 import { GraduationCap, HeartPulse, Users, Leaf } from "lucide-react";
 import EquipoDirectivo from "./_components/equipo-directivo";
+import Hero from "./_components/hero";
 
 // ─── DATOS ────────────────────────────────────────────────────────────────────
 const mision =
@@ -50,29 +51,8 @@ export default function QuienesSomosPage() {
   return (
     <main className="bg-white text-gray-800 font-sans">
 
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-[#1a3a6b] via-[#2251a3] to-[#73eafe] overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-white/5 rounded-full" />
-        <div className="absolute bottom-0 -left-10 w-64 h-64 bg-white/5 rounded-full" />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center text-white">
-          <span className="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
-            Organización sin fines de lucro
-          </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-            ¿Quiénes Somos?
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Jóvenes unidos por un mundo mejor.
-          </p>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20V60Z" fill="white" />
-          </svg>
-        </div>
-      </section>
+      {/* ── PORTADA (está en _components/hero.tsx) ── */}
+      <Hero />
 
       {/* ── MISIÓN Y VISIÓN ───────────────────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 py-20">
@@ -98,7 +78,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* ── HISTORIA (texto simple, sin tarjetas ni línea de tiempo) ────────── */}
-      <section className="bg-white py-20">
+      <section id="historia" className="bg-white py-20 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <span className="inline-block text-[#0271bd] font-bold text-xs tracking-[0.22em] uppercase">Nuestra historia</span>
