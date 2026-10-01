@@ -3,6 +3,7 @@ import "../globals.css";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
 import WhatsAppButton from "./_components/WhatsAppButton/WhatsAppButton";
+import Asistente from "@/components/Asistente/asistente";
 
 export const metadata: Metadata = {
   title: "Family Love",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <Header />
       {children}
       <Footer />
+      <Asistente />
       <WhatsAppButton />
     </>
   );
