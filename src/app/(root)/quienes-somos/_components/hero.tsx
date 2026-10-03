@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarHeart } from "lucide-react";
 
-// Caritas del equipo que aparecen juntas (fotos de /images/quienes-somos/equipo)
-const caras = ["tania", "darlyne", "maria", "jhan-toro", "mafer", "esau"];
-const totalEquipo = 16;
+import type { Persona } from "./equipo-datos";
 
-export default function Hero() {
+export default function Hero({ equipo }: { equipo: Persona[] }) {
+  // Caritas del equipo que aparecen juntas: las primeras 6 personas
+  const caras = equipo.slice(0, 6);
+  const totalEquipo = equipo.length;
   return (
     <section className="relative overflow-hidden bg-[#f6f9fc]">
       {/* Fondo: puntitos + manchas de color suaves */}
@@ -42,14 +43,16 @@ export default function Hero() {
           {/* Caritas del equipo */}
           <div className="mt-8 flex items-center gap-4">
             <div className="flex -space-x-3">
-              {caras.map((c) => (
-                <span key={c} className="relative w-11 h-11 rounded-full overflow-hidden ring-[3px] ring-white shadow-md bg-zinc-200">
-                  <Image src={`/images/quienes-somos/equipo/${c}.${c === "darlyne" ? "jpg" : "png"}`} alt="" fill className="object-cover object-[50%_8%] scale-[1.9] origin-top" sizes="88px" />
+              {caras.map((c, i) => (
+                <span key={c.id ?? i} className="relative w-11 h-11 rounded-full overflow-hidden ring-[3px] ring-white shadow-md bg-zinc-200">
+                  <Image src={c.imagen} alt="" fill className="object-cover object-[50%_8%] scale-[1.9] origin-top" sizes="88px" />
                 </span>
               ))}
-              <span className="w-11 h-11 rounded-full ring-[3px] ring-white bg-gradient-to-br from-[#1a3a6b] to-[#0271bd] text-white text-xs font-extrabold flex items-center justify-center shadow-md">
-                +{totalEquipo - caras.length}
-              </span>
+              {totalEquipo > caras.length && (
+                <span className="w-11 h-11 rounded-full ring-[3px] ring-white bg-gradient-to-br from-[#1a3a6b] to-[#0271bd] text-white text-xs font-extrabold flex items-center justify-center shadow-md">
+                  +{totalEquipo - caras.length}
+                </span>
+              )}
             </div>
             <p className="text-sm text-zinc-600 leading-tight">
               <b className="text-[#1a3a6b]">{totalEquipo} jóvenes líderes</b>

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { API_URL } from "./api";
 
-type Tema = "proyectos" | "noticias";
+export type Tema = "proyectos" | "noticias" | "equipo";
 
 // Escucha los avisos del backend (/api/v1/eventos) y ejecuta `alCambiar`
 // cuando se crea, edita o borra algo de los temas indicados.

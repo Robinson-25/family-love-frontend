@@ -1,6 +1,9 @@
 import { GraduationCap, HeartPulse, Users, Leaf } from "lucide-react";
 import EquipoDirectivo from "./_components/equipo-directivo";
 import Hero from "./_components/hero";
+import { equipoRespaldo, type Persona } from "./_components/equipo-datos";
+import AutoRefresh from "@/components/AutoRefresh";
+import { apiGet } from "@/lib/api";
 
 // ─── DATOS ────────────────────────────────────────────────────────────────────
 const mision =
@@ -47,12 +50,19 @@ const objetivos = [
 ];
 
 // ─── PÁGINA PRINCIPAL ─────────────────────────────────────────────────────────
-export default function QuienesSomosPage() {
+export default async function QuienesSomosPage() {
+  // El equipo directivo se administra desde el panel. Si el backend no
+  // responde, se muestra la lista de respaldo para que la página no quede vacía.
+  const datos = await apiGet<{ equipo: Persona[] }>("/equipo");
+  const equipo = datos?.equipo?.length ? datos.equipo : equipoRespaldo;
+
   return (
     <main className="bg-white text-gray-800 font-sans">
+      {/* Si alguien cambia el equipo en el panel, esta página se actualiza sola */}
+      <AutoRefresh temas={["equipo"]} />
 
       {/* ── PORTADA (está en _components/hero.tsx) ── */}
-      <Hero />
+      <Hero equipo={equipo} />
 
       {/* ── MISIÓN Y VISIÓN ───────────────────────────────────────────────── */}
       <section className="max-w-5xl mx-auto px-6 py-20">
@@ -129,7 +139,7 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* ── EQUIPO DIRECTIVO (está en _components/equipo-directivo.tsx) ── */}
-      <EquipoDirectivo />
+      <EquipoDirectivo equipo={equipo} />
 
     </main>
   );
